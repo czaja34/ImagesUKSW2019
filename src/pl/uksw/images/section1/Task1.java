@@ -7,7 +7,7 @@ public class Task1 {
     public BufferedImage task1(BufferedImage imageA, BufferedImage imageB) {
 
         int width;
-        int hight;
+        int height;
 
         if (imageA.getWidth() > imageB.getWidth())
             width = imageA.getWidth();
@@ -15,9 +15,9 @@ public class Task1 {
             width = imageB.getWidth();
 
         if (imageA.getHeight() > imageB.getHeight())
-            hight = imageA.getHeight();
+            height = imageA.getHeight();
         else
-            hight = imageB.getHeight();
+            height = imageB.getHeight();
 
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < imageA.getHeight() - imageB.getHeight(); y++) {
@@ -32,7 +32,7 @@ public class Task1 {
         }
 
         for (int x = 0; x < width; x++) {
-            for (int y = imageA.getHeight() - imageB.getHeight(); y < hight; y++) {
+            for (int y = imageA.getHeight() - imageB.getHeight(); y < height; y++) {
                 int pixel = imageA.getRGB(x, y);
                 int a = (pixel >> 24) & 0xff;
                 int r = 0;
