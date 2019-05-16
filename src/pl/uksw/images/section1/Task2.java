@@ -6,10 +6,6 @@ public class Task2 {
 
     public BufferedImage task2(BufferedImage imageA, BufferedImage imageB, BufferedImage imageC) {
 
-
-        int width = imageA.getWidth() - imageB.getWidth();
-        int hight = imageA.getHeight() - imageB.getHeight();
-
         int ii = imageA.getWidth() / imageB.getWidth();
         int jj = imageA.getHeight() / imageB.getHeight();
 
@@ -27,6 +23,7 @@ public class Task2 {
             minusNextJ = imageA.getHeight() / (imageB.getHeight() - resztaJ);
             toNextJ = true;
         }
+        minusNextJ = minusNextJ * 2;
 
         boolean toNextI = false;
         int minusNextI = 0;
@@ -35,8 +32,8 @@ public class Task2 {
             minusNextI = imageA.getWidth() / (imageB.getWidth() - resztaI);
             toNextI = true;
         }
-
         int count = 0;
+        int t = 0;
         for (int y = 0; y < imageB.getHeight(); y++) {
             int ee = count;
             int rr = count + jj;
@@ -50,9 +47,13 @@ public class Task2 {
                         imageA.setRGB(u, i, pixel);
                         if (minusNextJ != 0 && i % minusNextJ == 0 && i != 0 && toNextJ) {
                             toNextJ = false;
+                            System.out.println(i);
                         }
+                        if (i == 120)
+                            toNextJ = true;
                         if (i % nextJ == 0 && i != 0 && toNextJ) {
-                            imageA.setRGB(u, ++i, pixel);
+                            if(i + 1< imageA.getHeight())
+                                imageA.setRGB(u, ++i, pixel);
                             plus++;
                         }
                     }
@@ -77,7 +78,6 @@ public class Task2 {
                 for (int i = ee; i < rr; i++) {
                     if (i < imageA.getWidth()) {
                         imageC.setRGB(i, u, pixel);
-
                         if (i % nextI == 0 && i != 0) {
                             plusPixel = true;
                         }
@@ -87,8 +87,8 @@ public class Task2 {
                     int i = count1 + ii;
                     try {
                         imageC.setRGB(i, u, pixel);
-                        plus += 1;
-                    }catch (Exception e){
+                        plus++;
+                    } catch (Exception e) {
 
                     }
                     plusPixel = false;

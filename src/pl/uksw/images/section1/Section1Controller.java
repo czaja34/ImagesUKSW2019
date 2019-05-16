@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Section1Controller {
 
     public void section1Controller() throws IOException {
-        File inputFile1 = new File("resources/z5.tif");
+        File inputFile1 = new File("resources/z4.tif");
         File inputFile2 = new File("resources/z2.tif");
 
         File outputTask1 = new File("resources/outputSection1Task1.tif");

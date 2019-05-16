@@ -1,6 +1,6 @@
 package pl.uksw.images.tiff;
 
-import   javax.imageio.ImageIO;
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -13,6 +13,6 @@ public class TiffFile {
     }
 
     public void saveFile(File outputFile, BufferedImage image) throws IOException {
-        ImageIO.write(image, "bmp", outputFile);
+        ImageIO.write(image, "tif", outputFile);
     }
 }
